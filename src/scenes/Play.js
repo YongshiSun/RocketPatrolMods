@@ -16,6 +16,7 @@ class Play extends Phaser.Scene {
         this.load.audio('sfx_select', './assets/blip_select12.wav');
         this.load.audio('sfx_explosion', './assets/stab.wav'); //https://freesound.org/people/InspectorJ/sounds/413496/
         this.load.audio('sfx_rocket', './assets/throw.wav'); //https://freesound.org/people/kylepyke/sounds/196562/
+        this.load.audio('bg','./assets/skymusic.wav'); //https://freesound.org/people/dkiller2204/sounds/423133/
     }
 
     create(){ //something that loads once after game starts
@@ -40,6 +41,10 @@ class Play extends Phaser.Scene {
         this.ship01 = new spaceship(this, game.config.width+192, 132, 'spaceship', 0, 30).setOrigin(0,0);
         this.ship02 = new spaceship(this, game.config.width+96, 196, 'spaceship', 0, 20).setOrigin(0,0);
         this.ship03 = new spaceship(this, game.config.width, 260, 'spaceship', 0, 10).setOrigin(0,0);
+
+        //bg music
+        this.bgm = this.sound.add('bg');
+        this.bgm.play();
 
         // add this text to screen at (x axis,y axis,string)
         // 0,0 coordination is upper left corner
