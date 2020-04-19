@@ -1,5 +1,5 @@
-//Spaceship prefab
-class Spaceship extends Phaser.GameObjects.Sprite{
+//spaceship prefab
+class spaceship extends Phaser.GameObjects.Sprite{
     //(scene,x,y,texture,frame,, pointValue)
     //adding pointValue so that further spaceships can be worth more points
     constructor(scene, x, y, texture, frame, pointValue){

@@ -35,12 +35,12 @@ class Rocket extends Phaser.GameObjects.Sprite{
         }
 
         //if fired, move up
-        if(this.isFiring && this.y >= 108){
+        if(this.isFiring && this.y >= 8){
             this.y -= 2;
         }
 
         // reset on miss
-        if(this.y <= 108){
+        if(this.y <= 8){
             //this.isFiring = false;
             //this.y = 431;
             this.reset();

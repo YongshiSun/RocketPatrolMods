@@ -6,16 +6,16 @@ class Play extends Phaser.Scene {
     preload(){ //something that loads before game starts
         //load images/tile sprite
         //('what you want to define the name as', 'where is this in the folder')
-        this.load.image('rocket','./assets/rocket.png');
-        this.load.image('spaceship','./assets/spaceship.png');
+        this.load.image('rocket','./assets/fork.png'); //https://www.cleanpng.com/png-fork-knife-spoon-tableware-cutlery-fork-162554/
+        this.load.image('spaceship','./assets/meat.png'); // https://www.clipart.email/clipart/cartoon-meat-clipart-291207.html
         this.load.image('starfield','./assets/starfield.png');
         //load spritesheet
-        this.load.spritesheet('explosion','./assets/explosion.png',{frameWidth: 64, frameheight: 32, startFrame: 0, endFrame: 9});
+        this.load.spritesheet('explosion','./assets/boom.png',{frameWidth: 192, frameheight: 191, startFrame: 0, endFrame: 20}); //https://www.subpng.com/png-1mtyxe/
 
         //load audio
         this.load.audio('sfx_select', './assets/blip_select12.wav');
-        this.load.audio('sfx_explosion', './assets/explosion38.wav');
-        this.load.audio('sfx_rocket', './assets/rocket_shot.wav');
+        this.load.audio('sfx_explosion', './assets/stab.wav'); //https://freesound.org/people/InspectorJ/sounds/413496/
+        this.load.audio('sfx_rocket', './assets/stab.wav');
     }
 
     create(){ //something that loads once after game starts
@@ -34,12 +34,12 @@ class Play extends Phaser.Scene {
 
         //add rocket (p1)
         // constructor(scene, x, y, texture, frame) just skip frame bc phaser dont care about frame
-        this.p1Rocket = new Rocket(this, game.config.width/2,431,'rocket').setScale(0.5,0.5).setOrigin(0,0);
+        this.p1Rocket = new Rocket(this, game.config.width/2,431,'rocket').setScale(0.25,0.25).setOrigin(0,0);
 
         // add spaceships (x3)
-        this.ship01 = new Spaceship(this, game.config.width+192, 132, 'spaceship', 0, 30).setOrigin(0,0);
-        this.ship02 = new Spaceship(this, game.config.width+96, 196, 'spaceship', 0, 20).setOrigin(0,0);
-        this.ship03 = new Spaceship(this, game.config.width, 260, 'spaceship', 0, 10).setOrigin(0,0);
+        this.ship01 = new spaceship(this, game.config.width+192, 132, 'spaceship', 0, 30).setOrigin(0,0);
+        this.ship02 = new spaceship(this, game.config.width+96, 196, 'spaceship', 0, 20).setOrigin(0,0);
+        this.ship03 = new spaceship(this, game.config.width, 260, 'spaceship', 0, 10).setOrigin(0,0);
 
         // add this text to screen at (x axis,y axis,string)
         // 0,0 coordination is upper left corner
@@ -153,9 +153,10 @@ class Play extends Phaser.Scene {
     }
 
     shipExplode(ship) {
+
         ship.alpha = 0; //temporarily hide ship
         //create explosion sprite at ship's position
-        let boom = this.add.sprite(ship.x, ship.y, 'explosion').setOrigin(0,0);
+        let boom = this.add.sprite(ship.x, ship.y, 'explosion').setScale(0.5,0.5).setOrigin(0,0);
         boom.anims.play('explode'); // play explode animation
 
         //callback after animation completes
@@ -169,6 +170,6 @@ class Play extends Phaser.Scene {
         this.p1Score += ship.points;
         this.scoreLeft.text = this.p1Score;
 
-        this.sound.play('sfx_explosion');
+        //this.sound.play('sfx_explosion');
     }
 }

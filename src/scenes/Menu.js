@@ -6,16 +6,16 @@ class Menu extends Phaser.Scene {
     preload(){ //something that loads before game starts
         //load images/tile sprite
         //('what you want to define the name as', 'where is this in the folder')
-        this.load.image('rocket','./assets/rocket.png');
-        this.load.image('spaceship','./assets/spaceship.png');
+        this.load.image('rocket','./assets/fork.png'); //https://www.cleanpng.com/png-fork-knife-spoon-tableware-cutlery-fork-162554/
+        this.load.image('spaceship','./assets/meat.png'); //https://www.clipart.email/clipart/cartoon-meat-clipart-291207.html
         this.load.image('starfield','./assets/starfield.png');
         //load spritesheet
-        this.load.spritesheet('explosion','./assets/explosion.png',{frameWidth: 64, frameheight: 32, startFrame: 0, endFrame: 9});
+        this.load.spritesheet('explosion','./assets/boom.png',{frameWidth: 192, frameheight: 191, startFrame: 0, endFrame: 20}); //https://www.subpng.com/png-1mtyxe/
 
         //load audio
         this.load.audio('sfx_select', './assets/blip_select12.wav');
-        this.load.audio('sfx_explosion', './assets/explosion38.wav');
-        this.load.audio('sfx_rocket', './assets/rocket_shot.wav');
+        this.load.audio('sfx_explosion', './assets/stab.wav'); //https://freesound.org/people/InspectorJ/sounds/413496/
+        this.load.audio('sfx_rocket', './assets/stab.wav');
     }
 
     create(){
