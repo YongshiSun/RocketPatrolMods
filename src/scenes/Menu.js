@@ -8,7 +8,8 @@ class Menu extends Phaser.Scene {
         //('what you want to define the name as', 'where is this in the folder')
         this.load.image('rocket','./assets/fork.png'); //https://www.cleanpng.com/png-fork-knife-spoon-tableware-cutlery-fork-162554/
         this.load.image('spaceship','./assets/meat.png'); //https://www.clipart.email/clipart/cartoon-meat-clipart-291207.html
-        this.load.image('starfield','./assets/starfield.png');
+        this.load.image('starfield','./assets/Foodcourt.png'); //https://www.uihere.com/free-graphics/fast-food-market-in-the-food-court-svg-ai-file-183471
+        
         //load spritesheet
         this.load.spritesheet('explosion','./assets/boom.png',{frameWidth: 192, frameheight: 191, startFrame: 0, endFrame: 20}); //https://www.subpng.com/png-1mtyxe/
 

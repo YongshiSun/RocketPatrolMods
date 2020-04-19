@@ -8,7 +8,7 @@ class Play extends Phaser.Scene {
         //('what you want to define the name as', 'where is this in the folder')
         this.load.image('rocket','./assets/fork.png'); //https://www.cleanpng.com/png-fork-knife-spoon-tableware-cutlery-fork-162554/
         this.load.image('spaceship','./assets/meat.png'); // https://www.clipart.email/clipart/cartoon-meat-clipart-291207.html
-        this.load.image('starfield','./assets/starfield.png');
+        this.load.image('starfield','./assets/Foodcourt.png'); //https://www.uihere.com/free-graphics/fast-food-market-in-the-food-court-svg-ai-file-183471
         //load spritesheet
         this.load.spritesheet('explosion','./assets/boom.png',{frameWidth: 192, frameheight: 191, startFrame: 0, endFrame: 20}); //https://www.subpng.com/png-1mtyxe/
 
@@ -19,8 +19,8 @@ class Play extends Phaser.Scene {
     }
 
     create(){ //something that loads once after game starts
-        //place tile sprite
-        this.starfield = this.add.tileSprite(0,0,640,480,'starfield').setOrigin(0,0);
+        //place tile sprite (where on screen top left x, where on screen top left y, where end for image bottom right x, where end for image bottom right y, variable name)
+        this.starfield = this.add.tileSprite(30,30,980,980,'starfield').setScale(.60,.45).setOrigin(0,0);
 
         // white rectangular borders
         //(x axis, y axis, width, height, color in hex value)
@@ -29,8 +29,8 @@ class Play extends Phaser.Scene {
         this.add.rectangle(5,5,32,455,0xFFFFFF).setOrigin(0,0);
         this.add.rectangle(603,5,32,455,0xFFFFFF).setOrigin(0,0);
 
-        // green UI background
-        this.add.rectangle(37,42,566,64,0x00FF00).setOrigin(0,0);
+        // yellow UI background
+        this.add.rectangle(37,42,566,64,0xfff266).setOrigin(0,0);
 
         //add rocket (p1)
         // constructor(scene, x, y, texture, frame) just skip frame bc phaser dont care about frame
@@ -64,8 +64,8 @@ class Play extends Phaser.Scene {
         let scoreConfig = {
             fontFamily: 'Courier',
             fontSize: '28px',
-            backgroundColor: '#F3B141',
-            color: '#843605',
+            backgroundColor: '#Ff4343',
+            color: '#F3B141',
             align: 'right',
             padding: {
                 top: 5,
