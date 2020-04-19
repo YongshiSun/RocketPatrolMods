@@ -15,7 +15,7 @@ class Menu extends Phaser.Scene {
         //load audio
         this.load.audio('sfx_select', './assets/blip_select12.wav');
         this.load.audio('sfx_explosion', './assets/stab.wav'); //https://freesound.org/people/InspectorJ/sounds/413496/
-        this.load.audio('sfx_rocket', './assets/stab.wav');
+        this.load.audio('sfx_rocket', './assets/throw.wav'); //https://freesound.org/people/kylepyke/sounds/196562/
     }
 
     create(){
