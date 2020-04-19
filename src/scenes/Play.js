@@ -46,12 +46,13 @@ class Play extends Phaser.Scene {
         this.bgm = this.sound.add('bg');
         this.bgm.play();
 
+
         // add this text to screen at (x axis,y axis,string)
         // 0,0 coordination is upper left corner
         //this.add.text(20,20,"Rocket Patrol Play");
 
         //define keyboard keys
-        keyF = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F);
+        keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
         keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
 

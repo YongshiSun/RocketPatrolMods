@@ -9,6 +9,7 @@ class Menu extends Phaser.Scene {
         this.load.image('rocket','./assets/fork.png'); //https://www.cleanpng.com/png-fork-knife-spoon-tableware-cutlery-fork-162554/
         this.load.image('spaceship','./assets/meat.png'); //https://www.clipart.email/clipart/cartoon-meat-clipart-291207.html
         this.load.image('starfield','./assets/Foodcourt.png'); //https://www.uihere.com/free-graphics/fast-food-market-in-the-food-court-svg-ai-file-183471
+        this.load.image('cover','./assets/4680.jpg'); //http://www.freepik.com">Designed by macrovector_official / Freepik
         
         //load spritesheet
         this.load.spritesheet('explosion','./assets/boom.png',{frameWidth: 192, frameheight: 191, startFrame: 0, endFrame: 20}); //https://www.subpng.com/png-1mtyxe/
@@ -23,9 +24,9 @@ class Menu extends Phaser.Scene {
         //menu display
         let menuConfig = {
             fontFamily: 'Courier',
-            fontSize: '28px',
-            backgroundColor: '#F3B141',
-            color: '#843605',
+            fontSize: '25px',
+            backgroundColor: '#aa93e9',
+            color: '#d9f5f6',
             align: 'right',
             padding: {
                 top: 5,
@@ -34,6 +35,8 @@ class Menu extends Phaser.Scene {
             fixedWidth: 0
         }
         
+        //bg image
+        this.cover = this.add.tileSprite(0,0,4500,4500,'cover').setScale(.20,.20).setOrigin(0,0);
 
         //displays menu text
         // add this text to screen at (x axis,y axis,string)
@@ -43,10 +46,10 @@ class Menu extends Phaser.Scene {
         let centerY = game.config.height/2;
         let textSpacer = 64;
 
-        this.add.text(centerX, centerY- textSpacer, 'ROCKET PATROL', menuConfig).setOrigin(0.5);
-        this.add.text(centerX, centerY, 'Use <--> arrows to move & (F) to Fire', menuConfig).setOrigin(0.5);
-        menuConfig.backgroundColor = '#00FF00';
-        menuConfig.color = '#000';
+        this.add.text(centerX, centerY- textSpacer, 'Eat the Steak', menuConfig).setOrigin(0.5);
+        menuConfig.backgroundColor = '#61c1a1';
+        this.add.text(centerX, centerY, 'Use <--> arrows to move & (SPACE) to Fire', menuConfig).setOrigin(0.5);
+        menuConfig.backgroundColor = '#f08080';
         this.add.text(centerX,centerY + textSpacer,'Press <- for Easy or -> for Hard', menuConfig).setOrigin(0.5);
 
         //launch the next scene
