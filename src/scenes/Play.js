@@ -22,6 +22,8 @@ class Play extends Phaser.Scene {
     create(){ //something that loads once after game starts
         //place tile sprite (where on screen top left x, where on screen top left y, where end for image bottom right x, where end for image bottom right y, variable name)
         this.starfield = this.add.tileSprite(30,30,980,980,'starfield').setScale(.60,.45).setOrigin(0,0);
+        
+
 
         // white rectangular borders
         //(x axis, y axis, width, height, color in hex value)
@@ -41,12 +43,13 @@ class Play extends Phaser.Scene {
         let random1 = Math.random()*1000
         let random2 = Math.random()*1000
         let random3 = Math.random()*1000
-        this.ship01 = new spaceship(this, game.config.width+random1, 132, 'spaceship', 0, 30, random1).setOrigin(0,0);
-        this.ship02 = new spaceship(this, game.config.width+random2, 196, 'spaceship', 0, 20, random2).setOrigin(0,0);
-        this.ship03 = new spaceship(this, game.config.width+random3, 260, 'spaceship', 0, 10, random3).setOrigin(0,0);
+        this.ship01 = new spaceship(this, game.config.width+random1+random3, 132, 'spaceship', 0, 30, random1).setOrigin(0,0);
+        this.ship02 = new spaceship(this, game.config.width+random2+ random1, 196, 'spaceship', 0, 20, random2).setOrigin(0,0);
+        this.ship03 = new spaceship(this, game.config.width+random3+ random2, 260, 'spaceship', 0, 10, random3).setOrigin(0,0);
 
         //bg music
         this.bgm = this.sound.add('bg');
+        this.bgm.loop = true;
         this.bgm.play();
 
 
@@ -99,8 +102,17 @@ class Play extends Phaser.Scene {
 
     update(){ //something that reloads every frame
 
+        //counting the time in sec
+        game.settings.count = game.settings.count + 1;
+        //increasing speed after 30 sec
+        if(game.settings.count >= 3000){
+            game.settings = {
+                spaceshipSpeed: 10,
+            }
+        }
+
         //check key input for restart
-        if(this.gameOver && Phaser.Input.Ketboard.JustDown(keyF)){
+        if(this.gameOver ){
             this.scene.restart(this.p1Score);
         }
 
@@ -147,6 +159,7 @@ class Play extends Phaser.Scene {
             this.ship02.update();
             this.ship03.update();
         }
+
     }
 
     checkCollision(rocket, ship){
