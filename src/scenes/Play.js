@@ -123,6 +123,13 @@ class Play extends Phaser.Scene {
         if(this.gameOver && Phaser.Input.Keyboard.JustDown(keySPACE)){
             //this.bgm.pause();
             this.scene.restart(this.p1Score);
+            this.bgm.pause();
+            if(Phaser.Input.Keyboard.JustDown(keySPACE)){
+                this.scene.start('playScene');
+            }
+            if(Phaser.Input.Keyboard.JustDown(keyLEFT)){
+                this.scene.start('menuScene');
+            }
             
         }
 
