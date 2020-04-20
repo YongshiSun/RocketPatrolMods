@@ -95,8 +95,15 @@ class Play extends Phaser.Scene {
         scoreConfig.fixedWidth = 0;
         this.clock = this.time.delayedCall(game.settings.gameTimer, () =>{
             this.add.text(game.config.width/2, game.config.height/2, 'GAME OVER', scoreConfig).setOrigin(0,5);
-            this.add.text(game.config.width/2, game.config.height/2 + 64, '(F)ire to Restart or <- for Menu', scoreConfig).setOrigin(0.5);
+            this.add.text(game.config.width/2, game.config.height/2 + 64, 'Fire to Restart or <- for Menu', scoreConfig).setOrigin(0.5);
             this.gameOver = true;
+            this.bgm.pause();
+            if(Phaser.Input.Keyboard.JustDown(keySPACE)){
+                this.scene.star('playScene');
+            }
+            if(Phaser.Input.Keyboard.JustDown(keyLEFT)){
+                this.scene.star('menuScene');
+            }
         }, null, this);
 
     }
@@ -114,15 +121,9 @@ class Play extends Phaser.Scene {
 
         //check key input for restart
         if(this.gameOver && Phaser.Input.Keyboard.JustDown(keySPACE)){
-            this.bgm.pause();
+            //this.bgm.pause();
             this.scene.restart(this.p1Score);
             
-            if(Phaser.Input.Keyboard.JustDown(keySPACE)){
-                this.scene.star('playScene');
-            }
-            if(Phaser.Input.Keyboard.JustDown(keyLEFT)){
-                this.scene.star('menuScene');
-            }
         }
 
 
