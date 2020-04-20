@@ -48,6 +48,7 @@ class Play extends Phaser.Scene {
         this.ship03 = new spaceship(this, game.config.width+random3+ random2, 260, 'spaceship', 0, 10, random3).setOrigin(0,0);
 
         //bg music
+        // https://stackoverflow.com/questions/34210393/looping-audio-in-phaser
         this.bgm = this.sound.add('bg');
         this.bgm.loop = true;
         this.bgm.play();
