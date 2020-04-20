@@ -37,6 +37,12 @@
         play scene. I did think by looking for an upbeat sound effect on freesound.org under the creative commons's section. Then I
         added the music to the game by setting that audio as the background music and having it play on loop while the play screen 
         is ongoing.
+
+    Implement the speed increase that happens after 30 seconds in the original game (10)
+        I created a new variable in game.settings called count and set it as zero. Then in play.js I made sure that count gets incremented
+        every frame in the update function. Once count reaches 3000 which is about 30 seconds in the game, I used an if statement to 
+        increase the speed of the spaceships/meats from a speed of 3 to a speed of 10. If count >= 3000 then game.setting.spaceshipSpeed = 10.
+
     
 
 
