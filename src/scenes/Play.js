@@ -38,9 +38,12 @@ class Play extends Phaser.Scene {
         this.p1Rocket = new Rocket(this, game.config.width/2,431,'rocket').setScale(0.25,0.25).setOrigin(0,0);
 
         // add spaceships (x3)
-        this.ship01 = new spaceship(this, game.config.width+192, 132, 'spaceship', 0, 30).setOrigin(0,0);
-        this.ship02 = new spaceship(this, game.config.width+96, 196, 'spaceship', 0, 20).setOrigin(0,0);
-        this.ship03 = new spaceship(this, game.config.width, 260, 'spaceship', 0, 10).setOrigin(0,0);
+        let random1 = Math.random()*1000
+        let random2 = Math.random()*1000
+        let random3 = Math.random()*1000
+        this.ship01 = new spaceship(this, game.config.width+random1, 132, 'spaceship', 0, 30, random1).setOrigin(0,0);
+        this.ship02 = new spaceship(this, game.config.width+random2, 196, 'spaceship', 0, 20, random2).setOrigin(0,0);
+        this.ship03 = new spaceship(this, game.config.width+random3, 260, 'spaceship', 0, 10, random3).setOrigin(0,0);
 
         //bg music
         this.bgm = this.sound.add('bg');
